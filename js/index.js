@@ -2,7 +2,7 @@ const { createApp, ref, onMounted, reactive, computed, watch, watchEffect } = Vu
 
 createApp({
     setup(){
-        const day = ref('4')
+        const day = ref('0')
         const select = (idx) =>{
             day.value = idx
         }
