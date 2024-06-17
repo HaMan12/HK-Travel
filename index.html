@@ -203,25 +203,25 @@
             </Transition>
             <Transition>
                 <div class="modal-outer" v-show="openModal2 && tripsDay2[selects2].content">
-                    <div class="modal">
+                    <div class="modal" style="top:60%">
                         <div class="modal-header">
                             <button class="absolute right-3 top-1/2 translate-y-[-50%]" v-on:click="openModal2=false">
                                 <img src="img/iconClose.svg" alt="">
                             </button>
-                            <h2 v-if="selects !== null" class="text-2xl text-p font-bold">{{ tripsDay2[selects2].title
-                                }}
+                            <h2 v-if="selects2 !== null" class="text-2xl text-p font-bold">{{
+                                tripsDay2[selects2].title}}
                             </h2>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" style="overflow: scroll; max-height:350px;">
                             <div class="bg-[#EFF3F5] rounded-xl text-sm">
                                 <div>
                                     <div class="text-center text-xl text-p font-semibold mb-5">
-                                        <P v-if="selects !== null" v-html="tripsDay2[selects2].content"></P>
+                                        <P v-if="selects2 !== null" v-html="tripsDay2[selects2].content"></P>
                                     </div>
-                                    <div v-if="selects !== null">
+                                    <div v-if="selects2 !== null">
                                         <img :src="tripsDay2[selects2].image">
                                     </div>
-                                    <div v-if="selects !== null" class="mt-3">
+                                    <div v-if="selects2 !== null" class="mt-3">
                                         <img :src="tripsDay2[selects2].images">
                                     </div>
                                 </div>
