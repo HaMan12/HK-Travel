@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .center {
+        @apply flex justify-center items-center;
+    }
+    .text-num {
+        @apply font-bold text-xs;
+    }
+    .box-shadow {
+        box-shadow: 10px 10px #E1EEF8;
+    }
+    .modal-outer {
+        @apply fixed z-10 top-0 left-0 bg-[rgba(0,0,0,0.4)] w-full h-screen;
+    }    
+    .modal {
+        @apply bg-white rounded-xl fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] overflow-hidden;
+        width: calc(100% - 20px); 
+    }
+    .modal-header {
+        @apply text-center py-3 text-custdarkgray text-sm relative;
+    }
+    .modal-body {
+        @apply bg-[#F2F2F2] p-5;
+    }   
+    .visible {
+        visibility: visible;
+    }
+}

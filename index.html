@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>香港行程</title>
+</head>
+
+<body>
+    <div id="app">
+        <main v-cloak class="bg-[#f4f4f1] ">
+            <section class="min-h-screen relative" v-show="day==='0'">
+                <div class="flex flex-col justify-center items-center min-h-screen">
+                    <h1 class="text-center font-bold text-2xl pt-10 text-[#959477]">香港四天三夜</h1>
+                    <div class="flex flex-col w-full px-5 mt-20" style="flex:1" data-aos="fade-up"
+                        data-aos-anchor-placement="center-center">
+                        <button class="block bg-[#959476] p-5 rounded-md text-white mb-5"
+                            @click="select('1')">Day1</button>
+                        <button class="block bg-[#959476] p-5 rounded-md text-white mb-5"
+                            @click="select('2')">Day2</button>
+                        <button class="block bg-[#959476] p-5 rounded-md text-white mb-5"
+                            @click="select('3')">Day3</button>
+                        <button class="block bg-[#959476] p-5 rounded-md text-white mb-5"
+                            @click="select('4')">Day4</button>
+                    </div>
+                    <div>
+                        <img src="./img/港鐵.jpg" alt="港鐵" class="max-w-full h-[300px]">
+                    </div>
+                </div>
+            </section>
+            <section v-show="day==='1'">
+                <div class="min-h-screen overflow-hidden flex flex-col">
+                    <div class="flex flex-col px-5 mt-5" style="flex:1">
+                        <div class="flex gap-2 w-full mt-5">
+                            <button class="block bg-[#7E7E95] p-5 rounded-md text-white mb-5"
+                                @click="select('1')">Day1</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('2')">Day2</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('3')">Day3</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('4')">Day4</button>
+                        </div>
+                        <div class="text-center text-lg font-bold mt-5">
+                            <div class="bg-[#959477] rounded-sm box-shadow mb-10">
+                                <h2 class="text-xl mb-3 text-white font-bold py-2">行程<br>(點擊標題可出現路線或圖片)</h2>
+                            </div>
+                            <div v-for="(item,index) in tripsDay1" :key="index">
+                                <p class="text-p text-xl" @click="openModals(index)">{{item.title}}</p>
+                                <div class="center py-2" v-if="index !== tripsDay1.length - 1">
+                                    <svg class="animate-bounce w-8 h-8 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button class="block w-full bg-[#959476] p-5 rounded-md text-white text-xl"
+                            @click="goback">回首頁</button>
+                    </div>
+                </div>
+            </section>
+            <section v-show="day==='2'">
+                <div class="min-h-screen overflow-hidden flex flex-col">
+                    <div class="flex flex-col px-5 mt-5" style="flex:1">
+                        <div class="flex gap-2 w-full mt-5">
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('1')">Day1</button>
+                            <button class="block bg-[#7E7E95] p-5 rounded-md text-white mb-5"
+                                @click="select('2')">Day2</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('3')">Day3</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('4')">Day4</button>
+                        </div>
+                        <div class="text-center text-lg font-bold mt-5">
+                            <div class="bg-[#959477] rounded-sm box-shadow mb-10">
+                                <h2 class="text-xl mb-3 text-white font-bold py-2">行程<br>(點擊標題可出現路線或圖片)</h2>
+                            </div>
+                            <div v-for="(item,index) in tripsDay2" :key="index">
+                                <p class="text-p text-xl" @click="openModals2(index)">{{item.title}}</p>
+                                <div class="center py-2" v-if="index !== tripsDay2.length - 1">
+                                    <svg class="animate-bounce w-8 h-8 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button class="block w-full bg-[#959476] p-5 rounded-md text-white text-xl"
+                            @click="goback">回首頁</button>
+                    </div>
+                </div>
+            </section>
+            <section v-show="day==='3'">
+                <div class="min-h-screen overflow-hidden flex flex-col">
+                    <div class="flex flex-col px-5 mt-5" style="flex:1">
+                        <div class="flex gap-2 w-full mt-5">
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('1')">Day1</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('2')">Day2</button>
+                            <button class="block bg-[#7E7E95] p-5 rounded-md text-white mb-5"
+                                @click="select('3')">Day3</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('4')">Day4</button>
+                        </div>
+                        <div class="text-center text-lg font-bold mt-5">
+                            <div class="bg-[#959477] rounded-sm box-shadow mb-10">
+                                <h2 class="text-xl mb-3 text-white font-bold py-2">行程<br>(點擊標題可出現路線或圖片)</h2>
+                            </div>
+                            <div v-for="(item,index) in tripsDay3" :key="index">
+                                <p class="text-p text-xl" @click="openModals3(index)">{{item.title}}</p>
+                                <div class="center py-2" v-if="index !== tripsDay3.length - 1">
+                                    <svg class="animate-bounce w-8 h-8 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button class="block w-full bg-[#959476] p-5 rounded-md text-white text-xl"
+                            @click="goback">回首頁</button>
+                    </div>
+                </div>
+            </section>
+            <section v-show="day==='4'">
+                <div class="min-h-screen overflow-hidden flex flex-col">
+                    <div class="flex flex-col px-5 mt-5" style="flex:1">
+                        <div class="flex gap-2 w-full mt-5">
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('1')">Day1</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('2')">Day2</button>
+                            <button class="block bg-[#959477] p-5 rounded-md text-white mb-5"
+                                @click="select('3')">Day3</button>
+                            <button class="block bg-[#7E7E95] p-5 rounded-md text-white mb-5"
+                                @click="select('4')">Day4</button>
+                        </div>
+                        <div class="text-center text-lg font-bold mt-5">
+                            <div class="bg-[#959477] rounded-sm box-shadow mb-10">
+                                <h2 class="text-xl mb-3 text-white font-bold py-2">行程<br>(點擊標題可出現路線或圖片)</h2>
+                            </div>
+                            <div v-for="(item,index) in tripsDay4" :key="index">
+                                <p class="text-p text-xl" @click="openModals4(index)">{{item.title}}</p>
+                                <div class="center py-2" v-if="index !== tripsDay4.length - 1">
+                                    <svg class="animate-bounce w-8 h-8 text-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <button class="block w-full bg-[#959476] p-5 rounded-md text-white text-xl"
+                            @click="goback">回首頁</button>
+                    </div>
+                </div>
+            </section>
+            <Transition>
+                <div class="modal-outer" v-show="openModal && tripsDay1[selects].content">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <button class="absolute right-3 top-1/2 translate-y-[-50%]" v-on:click="openModal=false">
+                                <img src="img/iconClose.svg" alt="">
+                            </button>
+                            <h2 v-if="selects !== null" class="text-2xl text-p font-bold">{{ tripsDay1[selects].title }}
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="bg-[#EFF3F5] rounded-xl text-sm">
+                                <div>
+                                    <div class="text-center text-xl text-p font-semibold mb-5">
+                                        <P v-if="selects !== null" v-html="tripsDay1[selects].content"></P>
+                                    </div>
+                                    <div v-if="selects !== null">
+                                        <img :src="tripsDay1[selects].image">
+                                    </div>
+                                    <div v-if="selects !== null && tripsDay1[selects].link"
+                                        class="text-center text-xl text-blue-600 font-semibold my-5">
+                                        <a :href="tripsDay1[selects].link">google路線圖</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Transition>
+            <Transition>
+                <div class="modal-outer" v-show="openModal2 && tripsDay2[selects].content">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <button class="absolute right-3 top-1/2 translate-y-[-50%]" v-on:click="openModal2=false">
+                                <img src="img/iconClose.svg" alt="">
+                            </button>
+                            <h2 v-if="selects !== null" class="text-2xl text-p font-bold">{{ tripsDay2[selects].title }}
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="bg-[#EFF3F5] rounded-xl text-sm">
+                                <div>
+                                    <div class="text-center text-xl text-p font-semibold mb-5">
+                                        <P v-if="selects !== null" v-html="tripsDay2[selects].content"></P>
+                                    </div>
+                                    <div v-if="selects !== null">
+                                        <img :src="tripsDay2[selects].image">
+                                    </div>
+                                    <div v-if="selects !== null" class="mt-3">
+                                        <img :src="tripsDay2[selects].images">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Transition>
+            <Transition>
+                <div class="modal-outer" v-show="openModal3">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <button class="absolute right-3 top-1/2 translate-y-[-50%]" v-on:click="openModal3=false">
+                                <img src="img/iconClose.svg" alt="">
+                            </button>
+                            <h2 v-if="selects3 !== null" class="text-2xl text-p font-bold">
+                                {{ tripsDay3[selects3].title }}
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="bg-[#EFF3F5] rounded-xl text-sm">
+                                <div>
+                                    <div class="text-center text-xl text-p font-semibold mb-5">
+                                        <P v-if="selects3 !== null" v-html="tripsDay3[selects3].content"></P>
+                                    </div>
+                                    <div v-if="selects3 !== null">
+                                        <img :src="tripsDay3[selects3].image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Transition>
+            <Transition>
+                <div class="modal-outer" v-show="openModal4">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <button class="absolute right-3 top-1/2 translate-y-[-50%]" v-on:click="openModal4=false">
+                                <img src="img/iconClose.svg" alt="">
+                            </button>
+                            <h2 v-if="selects4 !== null" class="text-2xl text-p font-bold">
+                                {{ tripsDay4[selects4].title }}
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="bg-[#EFF3F5] rounded-xl text-sm">
+                                <div>
+                                    <div class="text-center text-xl text-p font-semibold mb-5">
+                                        <P v-if="selects4 !== null" v-html="tripsDay4[selects4].content"></P>
+                                    </div>
+                                    <div v-if="selects4 !== null">
+                                        <img :src="tripsDay4[selects4].image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Transition>
+        </main>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/Vue-3.4.27.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

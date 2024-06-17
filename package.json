@@ -1,0 +1,11 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "這是一個專案",
+  "main": "tailwind.config.js",
+  "scripts": {
+      "watch": "tailwindcss -i ./css/style.css -o ./css/all.css --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
