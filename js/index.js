@@ -37,7 +37,7 @@ createApp({
             {
                 title:'晚餐 棋子燒鵝(旺角)',
                 content:'可能需要搭計程車',
-                image:''
+                image:'./img/旗子燒鵝.jpg'
             },
             {
                 title:'吃飽逛街',
@@ -116,6 +116,7 @@ createApp({
             },
         ])
         const selects = ref(null);
+        const selects2 = ref(null);
         const selects3 = ref(null);
         const selects4 = ref(null);
         const openModal=ref(false)
@@ -127,7 +128,7 @@ createApp({
             openModal.value = true;
         }
         const openModals2= (index) =>{
-            selects.value = index;
+            selects2.value = index;
             openModal.value = false;
             openModal2.value = true;
         }
@@ -144,7 +145,7 @@ createApp({
             AOS.init();
         })
         return{
-            day,openModal,tripsDay1,selects,tripsDay2,openModal2,tripsDay3,openModal3,selects3,tripsDay4,selects4,openModal4,
+            day,openModal,tripsDay1,selects,tripsDay2,openModal2,tripsDay3,openModal3,selects3,tripsDay4,selects4,openModal4,selects2,
             select,goback,openModals,openModals2,openModals3,openModals4
         }
     }
