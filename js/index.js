@@ -13,8 +13,15 @@ createApp({
         // 行程
         const tripsDay1 = reactive([
             {
+                title:'領取八達通',
+                content:'領取地點：接機大堂Ａ-Ａ13櫃檯<br>辦理入境手續：請準備好紙本港簽、護照',
+                image:'',
+                link:'https://www.kkday.com/zh-tw/product/8962'
+                
+            },
+            {
                 title:'搭乘快線前往飯店',
-                content:'搭乘香港快線至<br>(購買團體票1人約<span class="text-red">70HK</span>)<br>香港站<br>轉地鐵(中環出發價格約<span class="text-red">10~12HK</span>)<br>金鐘站轉線到紅磡站<br>步行8分鐘到飯店',
+                content:'搭乘香港快線至<br>(購買團體票1人約<span class="text-red">70HK</span>)<br>香港站<br>轉地鐵(中環出發價格約<span class="text-red">10~12HK</span>)<br>金鐘站轉線到紅磡站<br>Ａ1出口出來，走過天橋，路程約8分鐘',
                 image:'',
                 
             },
@@ -31,22 +38,23 @@ createApp({
             },
             {
                 title:'故宮 15:00',
-                content:'google 步行 <br> 可能需要搭計程車',
-                image:'./img/故宮.jpg'
+                content:'搭乘Uber，約港幣<span class="text-red">55.05元</span>（231元台幣），車程10分鐘',
+                image:'./img/故宮.jpg',
+                link:'https://www.kkday.com/zh-hk/product/137778-hong-kong-palace-museum-ticketing'
             },
             {
                 title:'晚餐 棋子燒鵝(旺角)',
-                content:'可能需要搭計程車',
+                content:'車資:<span class="text-red">54元</span>港幣（車程8分鐘）',
                 image:'./img/旗子燒鵝.jpg'
             },
             {
-                title:'吃飽逛街',
-                content:'',
+                title:'廟街夜市',
+                content:'車資:<span class="text-red">53.27元</span>港幣（車程9分鐘）',
                 image:''
             },
             {
                 title:'返回飯店',
-                content:'',
+                content:'棋子燒鵝：走路12分鐘，抵達飯店廟街夜市：走路22分鐘，抵達飯店，搭乘Uber約<span class="text-red">57.74元</span>港幣，7分鐘抵達',
                 image:''
             },
         ])
@@ -54,13 +62,19 @@ createApp({
         const tripsDay2 = reactive([
             {
                 title:'搭乘地鐵前往迪士尼',
-                content:'吃早餐<br>步行至紅磡站 > 南昌站(轉車) >換東涌線(黃線) >欣澳站(轉車) > 迪士尼 <br> 如果在沙尖咀 沙尖咀 > 荔景 >換東涌線(黃線) >欣澳站(轉車) > 迪士尼',
+                content:'早上：飯店用餐 或 叫外送平台，享用飯店設施<br>步行至紅磡站 > 南昌站(轉車) >換東涌線(黃線) >欣澳站(轉車) > 迪士尼 <br> 如果在沙尖咀 沙尖咀 > 荔景 >換東涌線(黃線) >欣澳站(轉車) > 迪士尼',
                 image:'./img/港鐵.jpg',
-                images:'./img/迪士尼.jpg',
+                images:'./img/迪士尼.jpg',               
             },
             {
-                title:'回飯店',
-                content:'回去躺平叫外送',
+                title:'迪士尼',
+                content:'20:00 左右 會有星夢光影之旅',
+                image:'',
+                link:'https://tw.trip.com/guide/attraction/%E9%A6%99%E6%B8%AF%E8%BF%AA%E5%A3%AB%E5%B0%BC%E6%A8%82%E5%9C%92%E9%96%80%E7%A5%A8.html'
+            },
+            {
+                title:'返回唯港薈（飯店）休息',
+                content:'晚餐：路上買或使用外送平台，在飯店用餐',
                 image:'./img/港鐵.jpg',
             },
         ])
@@ -77,19 +91,40 @@ createApp({
                 image:'./img/蛋塔.jpg',
             },
             {
+                title:'大館 中環站',
+                content:'門票：免費<br>步行至灣仔站，搭乘港島線至中環站，步行約6分鐘',
+                image:'',
+            },
+            {
+                title:'石板街 中環站',
+                content:'從大館步行約4分鐘',
+                image:'',
+            },
+            {
+                title:'檸檬王',
+                content:'從石板街步行約5分鐘',
+                image:'',
+            },
+            {
+                title:'珍妮曲奇聰明小熊',
+                content:'從檸檬王步行約2分鐘',
+                image:'',
+            },
+            {
                 title:'媽咪雞蛋仔 中環站',
-                content:'推薦朱古力雞蛋仔',
+                content:'從石板街步行約2分鐘',
                 image:'./img/雞蛋仔.jpg',
             },
             {
                 title:'晚餐 坤記煲仔飯 (西營盤站)',
-                content:'晚餐搭地鐵到西營盤站後接步行',
+                content:'從中環站搭乘港島線 , 晚餐搭地鐵到西營盤站後接步行',
                 image:'./img/煲仔飯.png',
             },
             {
                 title:'維多利亞夜景 20:30',
-                content:'搭郵輪',
+                content:'搭郵輪，九龍公眾碼頭四號梯台集合',
                 image:'./img/維多利亞.jpg',
+                link:'https://www.kkday.com/zh-tw/product/163120'
             },
             {
                 title:'回飯店休息',
@@ -110,8 +145,8 @@ createApp({
                 image:'./img/點心到.webp',
             },
             {
-                title:'香港機場 都爹利會館',
-                content:'可以吃吃看這間 <br> 注意:提前2小時抵達機場 逛免稅店',
+                title:'香港機場',
+                content:'15:15-17:45辦理出境手續，準備好紙本港簽跟護照，逛香港機場<br>17:45-18:15登機準備回台灣',
                 image:'./img/都爹利.jpg',
             },
         ])
